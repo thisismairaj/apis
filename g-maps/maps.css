@@ -1,0 +1,21 @@
+#map-wrap {
+	margin-bottom: 50px;
+}
+#map {
+	height: 600px;
+	width: 100%;
+}
+#map1 {
+	height: 600px;
+	width: 100%
+}
+.content {
+	background-color: #ccc;
+}
+ul.nav-custom {
+	margin: 0 auto;
+	background-color: red;
+}
+.nav-custom a {
+	color: #fff;
+}
