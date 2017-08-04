@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Practice Drill: Google Maps API</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="maps.css">
 </head>
 <body>
@@ -57,30 +56,30 @@
 				map:map,
 			});
 
+			/*
+			*
+			* Map1 starts
+			*
+			*/
+
 			// Map1 options
         	var options1 = {
         		zoom: 6,
         		center:{lat:24.946218, lng:67.005615},
-        		icon:'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png'
         	}
 
 			// New map1 map
 			var map1 = new google.maps.Map(document.getElementById('map1'), options1);
 
-			addMarker({lat:24.946218, lng:67.005615})
-			function addMarker(coords){
-				var marker1 = new google.maps.Marker({
+			addMarker({lat:24.946218, lng:67.005615}); // karachi marker
+			addMarker({lat:25.2245, lng:68.2206},'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png'); // hyderabad marker
+			// Function for adding markers
+			function addMarker(coords,iconn){
+				var marker = new google.maps.Marker({
 					position:coords,
-					map:map1
-				});
-
-				var infoWindow = new google.maps.InfoWindow({
-					content: '<h3>This is Karachi!</h3>'
-				});
-
-				marker.addListener('click', function(){
-					infoWindow.open(map1,marker1);
-				});
+					map:map1,
+					icon: iconn
+				});				
 			}
 		}
 	</script>
