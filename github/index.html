@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GitHub API</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="	sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	
+<div class="container">
+<h1 class="page-head">GitHub API</h1>
+	<div class="form-group">
+		<input class="form-control" type="text" name="passed">
+	</div>
+	<div class="form-group">
+		<input type="button" class="btn btn-primary" onclick="fetchData(inputPassed.value)" name="submit" value="Abraca dabra!">
+	</div>
+</div>
+<div class="container">
+	<p class="username" id="username"></p>
+	<p class="name" id="name"></p>
+	<p class="bio" id="bio"></p>
+	<p class="location" id="location"></p>
+	<img src="" id="avatar">
+</div>
+<script>
+var inputPassed = document.querySelector(`input[name="passed"]`);
+
+function fetchData(passed){
+	fetch("https://api.github.com/users/" + passed)
+		.then(data => data.json())
+		.then(data => {
+		console.timeEnd("Fetching data:");
+		document.getElementById('username').innerHTML = "Username: " + data.login;
+		document.getElementById('name').innerHTML = "Name: " + data.name;
+		document.getElementById('bio').innerHTML = "Bio: " + data.bio;
+		document.getElementById('location').innerHTML = "Location: " + data.location;
+		document.getElementById('avatar').setAttribute('src', data.avatar_url);
+	});
+}
+</script>
+</body>
+</html>
